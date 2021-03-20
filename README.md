@@ -1,5 +1,7 @@
 # Iga Gruszczyńska - Portfolio
 
+### Feel free to check my portfolio! :cherry_blossom:
+
 ## Description
 
 The project intended to be a showcase of mine and my work. Here you can find my short life timeline and projects that I managed to create during my front-end path.
@@ -24,4 +26,4 @@ My dear friend Intey for connecting to his server and sending data from the form
 
 ## Project status
 
-Completed responsive. Some visual effect have some problems on Safari browser. I try to manage this.
+Completed and responsive. Some visual effect have some problems on Safari browser. I try to manage this.
