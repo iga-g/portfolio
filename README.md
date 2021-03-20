@@ -14,7 +14,7 @@ Feel free to check my portfolio! :cherry_blossom:
 
 ## Roadmap
 
-I think the best development for my portfolio will be creating new projects which I could add and show publicly.
+I think the best development for my portfolio will be creating new projects which I could add to it and show publicly.
 
 ## Authors and acknowledgment
 
