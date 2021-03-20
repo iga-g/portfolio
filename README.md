@@ -12,8 +12,6 @@ This project contains some things which I'd like to show by this portfolio besid
 - Neumorphism,
 - Converting JS code to be compatibile with all browsers.
 
-Feel free to check my portfolio! :cherry_blossom:
-
 ## Roadmap
 
 I think the best development for my portfolio will be creating new projects which I could add to it and show publicly.
