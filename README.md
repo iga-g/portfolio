@@ -3,7 +3,7 @@
 ## Description
 
 The project intended to be a showcase of mine and my work. Here you can find my short life timeline and projects that I managed to create during my front-end path.
-Portfolio contains some things which I'd like to show by this portfolio besides my bio:
+This project contains some things which I'd like to show by this portfolio besides my bio:
 - SCSS (mixins, variables),
 - Responsiveness,
 - Responsive menu ("Burger"),
