@@ -1,37 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
-
-@mixin neumorphism {
-  box-shadow: rgb(234 227 227 / 35%) -6px -6px 19px, rgb(234 234 227 / 70%) -5px -5px 15px,
-    rgb(136 135 122 / 20%) 6px 6px 13px, rgb(136 135 121 / 30%) 6px 6px 15px;
-  background-color: rgba(218, 218, 215, 0.5);
-  transition: box-shadow 0.3s ease-in-out;
-}
-@mixin neumorphism-hover {
-  box-shadow: -2px -2px 6px rgb(250 249 249 / 35%), -2px -2px 4px rgb(250 249 249 / 40%),
-    2px 2px 2px rgb(138 137 113 / 5%), 2px 2px 4px rgb(140 139 121 / 45%);
-}
-
-@mixin neumorphism-active {
-  box-shadow: inset -2px -2px 6px rgb(250 249 249 / 45%), inset -2px -2px 4px rgb(250 249 249 / 35%),
-    inset 2px 2px 2px rgb(140 113 101 / 10%), inset 2px 2px 4px rgb(140 113 101 / 20%);
-}
-
-@mixin glass {
-  background-color: rgba($primary-light, 0.35);
-  -webkit-backdrop-filter: blur(1rem);
-  backdrop-filter: blur(1rem);
-  background-clip: padding-box;
-}
-
-$primary-dark: rgba(53, 54, 54, 0.8);
-$primary-light: rgba(245, 245, 245);
-$secondary-color: rgba(133, 115, 83);
-$add-color: rgb(175, 126, 135);
-$bg-color: rgba(218, 218, 215);
-$shadow-light: rgb(241, 241, 241);
-$shadow-dark: rgb(182, 182, 182);
-$font-serif: "Rufina", serif;
-$font-sans: "Poppins", sans-serif;
+@import "./variables";
+@import "./mixins";
 
 *,
 ::before,
@@ -43,46 +12,43 @@ $font-sans: "Poppins", sans-serif;
 
 html {
   scroll-behavior: smooth;
-  overflow-y: scroll;
   font-size: 10px;
 }
 
 body {
-  background-color: $bg-color;
+  min-height: 100vh;
   font-family: $font-sans;
   font-weight: 400;
-  min-height: 100vh;
+  background-color: $bg-color;
   color: $primary-dark;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+*::selection {
+  background-color: $primary-light;
 }
 
 *::-moz-selection {
   background-color: $primary-light;
 }
-*::selection {
-  background-color: $primary-light;
-}
 
 h1 {
+  position: relative;
   font-family: $font-serif;
   font-size: 100pt;
+  font-weight: 700;
   letter-spacing: -0.8rem;
   text-transform: uppercase;
-  font-weight: 700;
-  position: relative;
   color: $bg-color;
-  text-shadow: -2px -2px 4px rgb(250 249 249 / 40%), -2px -2px 4px rgb(250 249 249 / 45%),
-    2px 2px 2px rgb(138 137 113 / 5%), 2px 2px 4px rgb(140 139 121 / 45%), rgb(234 227 227 / 35%) -2px -2px 19px,
-    rgb(234 234 227 / 70%) -2px -2px 15px, rgb(136 135 122 / 20%) 2px 2px 13px, rgb(136 135 121 / 30%) 2px 2px 15px;
+  @include neumo-text;
 
   & .vertical {
+    position: absolute;
+    transform: translate(-26px, -119px);
     writing-mode: vertical-rl;
     text-orientation: upright;
-    position: absolute;
     letter-spacing: -2.5rem;
-    transform: translate(-26px, -119px);
   }
+
   &::after {
     content: url("../assets/line-welcome.svg");
     margin-left: 4px;
@@ -90,23 +56,23 @@ h1 {
 }
 
 h2 {
-  width: 100%;
-  font-weight: 300;
+  // width: 100%;
   font-size: 2.1rem;
+  font-weight: 300;
+  line-height: 2rem;
   letter-spacing: -0.1rem;
   text-align: center;
   color: rgba($primary-dark, 0.7);
-  line-height: 2rem;
 }
 
 h3 {
   font-family: $font-serif;
-  font-weight: 500;
   font-size: 6rem;
+  font-weight: 500;
   letter-spacing: -0.3rem;
+  text-align: center;
   color: $primary-dark;
   text-shadow: 2px 2px 1px rgba($shadow-light, 0.7), 6px 6px 6px rgba($shadow-dark, 0.3);
-  text-align: center;
 
   &::after {
     content: url("../assets/line-h3.svg");
@@ -119,27 +85,28 @@ h3 {
 
 h4 {
   font-family: $font-serif;
-  font-weight: 500;
   font-size: 3.5rem;
+  font-weight: 500;
   letter-spacing: -0.3rem;
-  text-shadow: 2px 2px 1px rgba($shadow-light, 0.7);
   color: rgba($secondary-color, 0.8);
+  text-shadow: 2px 2px 1px rgba($shadow-light, 0.7);
 }
 
 h5 {
   font-size: 1.4rem;
   font-weight: 400;
+  text-align: center;
   color: rgba($primary-dark, 0.7);
 }
 
 p,
 li {
+  padding: 0.3em 0;
   font-size: 1.4rem;
   line-height: 2rem;
   letter-spacing: -0.05rem;
-  padding: 0.3em 0;
-  text-shadow: 2px 2px 5px rgba($shadow-dark, 0.3);
   text-align: justify;
+  text-shadow: 2px 2px 5px rgba($shadow-dark, 0.3);
 }
 
 li {
@@ -149,29 +116,29 @@ li {
 }
 
 a {
-  font-family: $font-sans;
-  color: $add-color;
-  font-weight: 600;
-  text-decoration: none;
-  letter-spacing: -0.05rem;
-  border: 0;
-  background-color: transparent;
   cursor: pointer;
+  font-family: $font-sans;
+  font-weight: 600;
+  letter-spacing: -0.05rem;
+  text-decoration: none;
+  background-color: transparent;
+  color: $add-color;
+  border: 0;
   outline: transparent;
 }
 
 button {
   cursor: pointer;
-  border: 0;
-  border-radius: 3rem;
-  font-family: $font-sans;
-  font-weight: 600;
-  color: $primary-dark;
-  background-color: rgb($bg-color, 0.6);
-  outline: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: $font-sans;
+  font-weight: 600;
+  border: 0;
+  border-radius: 3rem;
+  background-color: rgb($bg-color, 0.6);
+  color: $primary-dark;
+  outline: transparent;
   @include neumorphism;
 
   &:hover {
@@ -184,7 +151,7 @@ button {
 }
 
 main {
-  width: 100%;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,33 +162,34 @@ section {
   min-height: 80vh;
   max-width: 80vw;
   position: relative;
-  padding-top: 7vh;
+  padding-top: 12vh;
 }
 
 header {
-  height: 10vh;
+  height: 100px;
   width: 100%;
-  position: -webkit-sticky;
-  position: sticky;
+
   top: 0;
-  z-index: 20;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 0 20vw;
-  transition: all 0.5s ease-in-out;
+  padding: 0 5vw;
+  z-index: 5;
+
+  transition: height 0.5s ease-in-out;
 
   & nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex: 1 0 auto;
+    z-index: 1994;
   }
 
   & .logo {
-    cursor: pointer;
     height: 7vh;
-    margin-top: 3%;
+    margin-top: 3rem;
+    z-index: 1;
   }
 }
 
@@ -231,48 +199,75 @@ form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  font-size: 1.4rem;
   padding: 3rem 0;
+  font-size: 1.4rem;
 
   input,
   textarea {
     min-height: 4rem;
     padding: 1.5rem;
-    appearance: none;
+    margin-bottom: 1.5rem;
     font-family: inherit;
-    color: inherit;
     border: 0;
     border-radius: 3rem;
     background-color: $bg-color;
-    margin-bottom: 1.5rem;
+    color: inherit;
+    appearance: none;
     @include neumorphism-hover;
 
+    &,
     &:focus {
       outline: transparent;
-      @include neumorphism-active;
     }
   }
 
   & textarea {
-    resize: vertical;
     min-height: 5rem;
+    resize: vertical;
   }
 
   & label {
     margin-left: 2rem;
     font-weight: 500;
   }
+}
 
-  & input[type="submit"] {
-    align-self: center;
-    width: 50%;
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  @include neumorphism-active;
+}
+
+input[type="submit"] {
+  width: 50%;
+  align-self: center;
+
+  &:active {
+    @include neumorphism-active;
   }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  font-family: $font-sans;
+  -webkit-text-fill-color: $primary-dark;
+  background-color: $bg-color;
+  @include neumorphism-active;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 footer {
   width: 100%;
-  color: $primary-dark;
   padding: 2rem 0;
+  color: $primary-dark;
+
   & p {
     font-size: 1.2em;
     font-weight: 400;
@@ -280,34 +275,33 @@ footer {
   }
 }
 
-.nav-links a {
+.nav-menu a {
   text-transform: uppercase;
   text-shadow: 2px 2px 4px rgba($shadow-dark, 0.5);
   & .nav-num {
-    color: rgba($secondary-color, 0.8);
     padding-right: 0.7rem;
     font-style: italic;
     font-size: 1.1rem;
+    color: rgba($secondary-color, 0.8);
   }
 }
 
 .socials {
-  display: flex;
   width: 100%;
-  justify-content: flex-end;
   margin-top: 3rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .social-link,
 .project-link {
-  padding: 10px;
-  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem 1rem;
-  width: 5rem;
-  height: 5rem;
+  margin: 1rem 2rem;
+  border-radius: 50%;
   @include neumorphism;
 
   &:hover {
@@ -320,7 +314,7 @@ footer {
 }
 
 i {
-  font-size: 20px;
+  font-size: 2.5rem;
   color: $add-color;
 }
 
@@ -334,8 +328,7 @@ i {
   & button {
     width: 5rem;
     height: 5rem;
-    position: absolute;
-    bottom: 0.5rem;
+    margin-top: 5rem;
   }
 }
 
@@ -346,21 +339,20 @@ i {
   justify-content: center;
 }
 
-.photo {
-  flex: 1 1 49%;
+.photo-box {
   width: 100%;
   max-width: 500px;
-  border-radius: 64% 36% 40% 60% / 47% 40% 60% 53%;
-
+  flex: 1 1 49%;
   padding: 5em;
+  border-radius: 64% 36% 40% 60% / 47% 40% 60% 53%;
   @include neumorphism;
   @include neumorphism-active;
 
   & img {
     width: 100%;
     display: block;
-    border-radius: 64% 36% 40% 60% / 47% 40% 60% 53%;
     border: 0.1rem solid $shadow-dark;
+    border-radius: 64% 36% 40% 60% / 47% 40% 60% 53%;
     @include neumorphism;
   }
 }
@@ -370,8 +362,8 @@ i {
 }
 
 .about-me-box {
-  flex: 1 1 49%;
   max-width: 500px;
+  flex: 1 1 49%;
   justify-self: flex-start;
 
   & li {
@@ -379,25 +371,20 @@ i {
 
     &::before {
       content: "";
-      border-color: transparent $primary-light;
-      border-style: solid;
-      border-width: 0.35rem 0 0.35rem 0.45rem;
-      display: block;
       height: 0;
       width: 0;
       left: -1.5rem;
       top: 1.3rem;
       position: relative;
+      display: block;
+      border-color: transparent $primary-light;
+      border-style: solid;
+      border-width: 0.35rem 0 0.35rem 0.45rem;
     }
   }
 }
 
-.projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+.projects,
 .projects-container {
   display: flex;
   flex-direction: column;
@@ -409,76 +396,77 @@ i {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin: 3rem 0;
-  margin-left: 120px;
 
   & .project-img {
     min-width: 50rem;
     position: relative;
 
     & img {
-      display: block;
       width: 100%;
+      display: block;
+      padding: 2rem;
       border-radius: 3rem;
+      background-color: $bg-color;
       -webkit-filter: grayscale(60%);
       filter: grayscale(60%);
       transition: filter 0.2s ease-in-out;
+      @include neumorphism-active;
 
       &:hover {
         -webkit-filter: unset;
         filter: unset;
       }
     }
+  }
 
-    &::before {
-      content: " ";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background-color: rgba($primary-light, 0.7);
-      z-index: -1;
-      border-radius: 3rem;
-      transform: skew(1.3deg, 1.3deg);
-      box-shadow: $shadow-dark;
+  & .project-info {
+    max-width: 60em;
+    min-width: 35em;
+    min-height: 80%;
+    max-height: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 30px;
+    border: solid 2px transparent;
+    border-radius: 3em;
+    text-align: right;
+
+    @include glass;
+    border: solid 2px transparent;
+
+    transform: translateX(-60px);
+    transition: transform 0.7s ease-in-out;
+
+    z-index: 2;
+
+    & .project-links {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
     }
   }
 }
 
-.project-info {
-  position: relative;
-  max-width: 60em;
-  min-width: 35em;
-  left: -120px;
-  padding: 30px;
-  border-radius: 3em;
-  z-index: 2;
-  @include glass;
-  border: solid 2px transparent;
-  box-shadow: 5px 2px 5px rgba($shadow-light, 0.2);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  text-align: right;
-
+.project-card:nth-of-type(odd) .project-img {
+  transform: translateX(60px);
   transition: transform 0.7s ease-in-out;
-
-  & .project-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
+}
+.project-card:nth-of-type(odd) .project-info {
+  transform: translateX(-60px);
+  transition: transform 0.7s ease-in-out;
 }
 
-.project-card:nth-of-type(even) {
-  margin-left: -120px;
+.project-card:nth-of-type(even) .project-img {
+  transform: translateX(-60px);
 }
+
 .project-card:nth-of-type(even) .project-info {
-  left: 120px;
-
+  transform: translateX(60px);
   & h4 {
     text-align: left;
   }
@@ -489,6 +477,9 @@ i {
   display: flex;
   flex-direction: column;
   align-items: center;
+  p {
+    text-align: center;
+  }
 }
 
 .wave-effect:hover {
@@ -502,18 +493,22 @@ i {
 
 @keyframes wave {
   0% {
-    background-position: 0 100%;
+    background-position: 0 80%;
   }
   100% {
-    background-position: 300px 100%;
+    background-position: 300px 80%;
   }
 }
 
 .sticky-header {
-  height: 7vh;
+  height: 70px;
+  position: -webkit-sticky;
+  position: sticky;
   @include glass;
-  transition: all 0.5s ease-in-out;
-  box-shadow: 2px 2px 5px rgba($shadow-dark, 0.1);
+  border: 0;
+  border-bottom: solid 2px transparent;
+  // box-shadow: 2px 2px 5px rgba($shadow-dark, 0.5);
+  transition: position 0.5s ease-in-out, height 0.5s ease-in-out;
 }
 
 .fixed-email {
@@ -535,51 +530,106 @@ i {
   }
 }
 
-@media screen and (max-width: 1757px) {
-  h1::after {
+.btn-menu {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 15px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  background-color: $bg-color;
+  overflow: hidden;
+  z-index: 1989;
+
+  display: none;
+  @include neumorphism-hover;
+
+  & .label {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  & .burger {
     position: relative;
-    top: -30px;
-    margin-left: 94px;
-  }
-}
+    transition-timing-function: ease-in;
 
-@media screen and (max-width: 1205px) {
-  h1 {
-    font-size: 10rem;
-    & .vertical {
-      transform: translate(-19px, -85px);
-    }
+    &,
+    &::before,
     &::after {
-      position: relative;
-      top: -20px;
-      margin-left: 70px;
+      display: inline-block;
+      width: 30px;
+      height: 3px;
+      background-color: $primary-light;
+      border-radius: 20px;
+      transition: 500ms;
+      box-shadow: 2px 2px 2px rgba($shadow-dark, 0.3);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    &::before {
+      transform: translateY(-8px);
+    }
+
+    &::after {
+      transform: translateY(8px);
     }
   }
 }
 
-@media screen and (max-width: 950px) {
-  h1 {
-    font-size: 10em;
-    & .vertical {
-      display: block;
-      line-height: 0.5em;
-      position: relative;
-      writing-mode: unset;
-      text-orientation: unset;
-      letter-spacing: unset;
-      transform: unset;
-    }
+.btn-menu_open .burger {
+  transform: translateX(100px);
+  background-color: transparent;
+  box-shadow: unset;
+
+  &::before {
+    transform: rotate(45deg) translate(-71px, 71px);
   }
 
-  .about {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .fixed-email {
-    display: none;
+  &::after {
+    transform: rotate(-45deg) translate(-71px, -71px);
   }
 }
+
+.nav-menu_open {
+  width: 67vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 2%;
+
+  @include glass;
+  border: 0;
+  border-left: solid 2px transparent;
+
+  display: none;
+
+  li {
+    margin: 3rem 0;
+  }
+
+  & a {
+    font-size: 5rem;
+  }
+}
+
+@import "./media";

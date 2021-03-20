@@ -1,0 +1,36 @@
+@mixin neumorphism {
+  box-shadow: rgb(234 227 227 / 35%) -6px -6px 19px, rgb(234 234 227 / 70%) -5px -5px 15px,
+    rgb(136 135 122 / 20%) 6px 6px 13px, rgb(136 135 121 / 30%) 6px 6px 15px;
+  background-color: rgba(218, 218, 215, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+@mixin neumorphism-hover {
+  box-shadow: -2px -2px 6px rgb(250 249 249 / 35%), -2px -2px 4px rgb(250 249 249 / 40%),
+    2px 2px 2px rgb(138 137 113 / 5%), 2px 2px 4px rgb(140 139 121 / 45%);
+}
+
+@mixin neumorphism-active {
+  box-shadow: inset -2px -2px 6px rgb(250 249 249 / 45%), inset -2px -2px 4px rgb(250 249 249 / 35%),
+    inset 2px 2px 2px rgb(140 113 101 / 10%), inset 2px 2px 4px rgb(140 113 101 / 20%);
+}
+
+@mixin glass {
+  background-color: rgba($primary-light, 0.35);
+  -webkit-backdrop-filter: blur(1rem);
+  backdrop-filter: blur(1rem);
+  box-shadow: -2px -2px 5px rgba($shadow-dark, 0.1);
+  background-clip: padding-box;
+}
+
+@mixin neumo-text {
+  text-shadow: -2px -2px 4px rgb(250 249 249 / 40%), -2px -2px 4px rgb(250 249 249 / 45%),
+    2px 2px 2px rgb(138 137 113 / 5%), 2px 2px 4px rgb(140 139 121 / 45%), rgb(234 227 227 / 35%) -2px -2px 19px,
+    rgb(234 234 227 / 70%) -2px -2px 15px, rgb(136 135 122 / 20%) 2px 2px 13px, rgb(136 135 121 / 30%) 2px 2px 15px;
+}
+
+@mixin neumo-text-sharp {
+  text-shadow: -2px -2px 2px rgb(250 249 249 / 40%), -2px -2px 6px rgb(250 249 249 / 45%),
+    2px 2px 2px rgb(138 137 113 / 5%), 2px 2px 2px rgb(140 139 121 / 45%), rgb(234 227 227 / 35%) -2px -2px 5px,
+    rgb(234 234 227 / 70%) -2px -2px 2px, rgb(136 135 122 / 20%) 2px 2px 6px, rgb(136 135 121 / 30%) 2px 2px 6px;
+}

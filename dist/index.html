@@ -13,7 +13,7 @@
   <meta property="og:url" content="">
   <meta property="og:description" content="I'd like to be a front-end developer and I'm looking for a job. If you are interested in hiring, contact me.">
 
-  <link rel="icon" href="assets/favicon1.png">
+  <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="styles/main.css">
   <script src="https://kit.fontawesome.com/acea9e66fc.js" crossorigin="anonymous"></script>
 </head>
@@ -21,9 +21,13 @@
 <body id="home">
 
   <header>
-      <img class="logo" src="assets/logo2.svg" alt="logo">
+      <a href="/index.html"><img class="logo" src="assets/logo.svg" alt="logo"></a>
       <nav>
-        <ul class="nav-links">
+        <button class="nav-menu-toggler btn-menu" aria-expanded="false">
+          <span class="label">Open/close menu</span>
+          <span class="burger"></span>
+        </button>
+        <ul class="nav-menu">
           <li><a href="#home" class="wave-effect"><span class="nav-num">01.</span>Home</a></li>
           <li><a href="#about" class="wave-effect"><span class="nav-num">02.</span>About</a></li>
           <li><a href="#projects" class="wave-effect"><span class="nav-num">03.</span>Projects</a></li>
@@ -39,17 +43,15 @@
         <h2>Hey! I'm aspiring to be a front-end developer.</h2>
         <h2>Feel free to explore my portfolio to know me better. Check out my work and visit my socials.</h2>
         <div class="socials">
-          <ul>
-            <li><a href="https://www.linkedin.com/in/iga-gruszczy%C5%84ska-855932206/" class="social-link"><i class="fab fa-linkedin-in"></i></a></li>
-            <li><a href="https://github.com/iga-g" class="social-link"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://pl.pinterest.com/iga_gr" class="social-link"><i class="fab fa-pinterest-p"></i></a></li>
-          </ul>
+          <a href="https://www.linkedin.com/in/iga-gruszczy%C5%84ska-855932206/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/iga-g" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="https://pl.pinterest.com/iga_gr" class="social-link"><i class="fab fa-pinterest-p"></i></a>
         </div>
         <a href="#about"><button><i class="fas fa-chevron-down"></i></button></a>
     </section>
 
     <section id="about" class="about">
-      <div class="photo">
+      <div class="photo-box">
         <img src="assets/photoofme.png" alt="photo of me">
       </div>
       <div class="separator"></div>
@@ -118,7 +120,7 @@
         <div class="project-card">
           <div class="project-info">
             <h4>Online Webinar Page</h4>
-            <p>Really simple project which arose becuse I wanted to learn <a href="https://www.figma.com/" class="wave-effect">Figma.</a>I created layout by means of this design tool and wanted to encode it. It contains simple transitions on page and custom form.</p>
+            <p>Really simple project which arose becuse I wanted to learn <a href="https://www.figma.com/" class="wave-effect">Figma.</a> I created layout by means of this design tool and wanted to encode it. It contains simple transitions on page and custom form.</p>
             <div class="project-links">
               <a href="https://github.com/iga-g/online-webinar-page" class="project-link"><i class="fab fa-github"></i></a>
               <a href="https://iga-g.github.io/online-webinar-page" class="project-link"><i class="far fa-eye"></i></a>
@@ -146,7 +148,7 @@
     </section>
 
     <div class="fixed-email">
-      <img src="/assets/line-h3.svg" alt="">
+      <img src="assets/line-h3.svg" alt="">
       <a href="mailto:igg@interia.eu">💌 igg@interia.eu</a>
     </div>
   </main>
@@ -156,6 +158,6 @@
       <p>&copy; Iga Gruszczyńska 2021</p>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="scripts/bundle.js"></script>
 </body>
 </html>
