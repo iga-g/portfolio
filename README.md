@@ -24,4 +24,4 @@ My dear friend Intey for connecting to his server and sending data from the form
 
 ## Project status
 
-Completed and responsive. Some visual effect have some problems on Safari browser. I try to manage this.
+Completed and responsive. Some visual effects have some problems on Safari browser. I try to manage this.
