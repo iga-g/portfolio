@@ -204,6 +204,7 @@ form {
 
   input,
   textarea {
+    max-width: 100%;
     min-height: 4rem;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -386,6 +387,7 @@ i {
 
 .projects,
 .projects-container {
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

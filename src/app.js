@@ -3,7 +3,7 @@ const header = document.querySelector('header');
 window.onscroll = () => {
     if (window.scrollY > 100){
       header.classList.add('sticky-header');
-    } else {
+    } else if (window.scrollY <= 50 ) {
       header.classList.remove('sticky-header');
     }
 };
