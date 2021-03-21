@@ -43,10 +43,12 @@ h1 {
 
   & .vertical {
     position: absolute;
-    transform: translate(-33px, -140px);
     writing-mode: vertical-rl;
     text-orientation: upright;
     letter-spacing: -2.5rem;
+    left: -19pt;
+    top: -89pt;
+    bottom: 0;
   }
 
   &::after {
