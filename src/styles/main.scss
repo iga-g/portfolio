@@ -43,7 +43,7 @@ h1 {
 
   & .vertical {
     position: absolute;
-    transform: translate(-26px, -119px);
+    transform: translate(-33px, -140px);
     writing-mode: vertical-rl;
     text-orientation: upright;
     letter-spacing: -2.5rem;
@@ -204,7 +204,6 @@ form {
 
   input,
   textarea {
-    max-width: 100%;
     min-height: 4rem;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -387,7 +386,6 @@ i {
 
 .projects,
 .projects-container {
-  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
