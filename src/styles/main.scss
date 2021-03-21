@@ -46,9 +46,7 @@ h1 {
     writing-mode: vertical-rl;
     text-orientation: upright;
     letter-spacing: -2.5rem;
-    left: -19pt;
-    top: -89pt;
-    bottom: 0;
+    transform: translate(-25px, -120px);
   }
 
   &::after {

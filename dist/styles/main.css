@@ -43,9 +43,7 @@ h1 .vertical {
   writing-mode: vertical-rl;
   text-orientation: upright;
   letter-spacing: -2.5rem;
-  left: -19pt;
-  top: -89pt;
-  bottom: 0;
+  transform: translate(-25px, -120px);
 }
 h1::after {
   content: url("../assets/line-welcome.svg");
@@ -619,7 +617,7 @@ i {
     font-size: 12rem;
   }
   h1 .vertical {
-    transform: translate(-28px, -124px);
+    transform: translate(-23px, -106px);
   }
   h1::after {
     position: relative;
