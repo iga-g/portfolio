@@ -151,15 +151,28 @@
         <h3>Contact</h3>
         <h5>Would you like to work together? Contact me!</h5>
         <p>You can get in touch with me by filling contact form here or <a href="mailto:igg@interia.eu" class="wave-effect">sending me an e-mail</a>.</p>
-        <form onsubmit="mailprompt(this, event)"> 
+        <form name="contactForm" onsubmit="mailprompt(this, event)"> 
           <label for="name">Name:</label>
           <input type="text" name="name" placeholder="e.g. John Smith">
+          <span class="err-msg" id="name-validation-msg"></span>
           <label for="email">E-mail:</label>
           <input type="email" name="email" placeholder="e.g. name@email.com">
+          <span class="err-msg" id="email-validation-msg"></span>
           <label for="msg">Message:</label>
           <textarea name="msg" id="message" cols="30" rows="10" placeholder="Type your message here.."></textarea>
+          <span class="err-msg" id="textarea-validation-msg"></span>
           <input type="submit" value="Send">
         </form>
+        <div class="popup-wrapper">
+          <div class="popup">
+            <div class="popup-close"></div>
+            <div class="popup-content">
+              <h4>Thank you for your message!</h4>
+              <p>I will answer you as soon as possible.</p>
+              <p>Have a lovely day! Iga</p>
+            </div>
+          </div>
+        </div>
     </section>
 
     <div class="fixed-email">
@@ -173,6 +186,6 @@
       <p>&copy; Iga Gruszczyńska 2021</p>
   </footer>
 
-  <script src="dist/scripts/bundle.js"></script>
+  <script src="src/app.js"></script>
 </body>
 </html>
