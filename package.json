@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "The project intended to be a showcase of mine and my work. Here you can find my short life timeline and projects that I managed to create during my front-end path.\r This project contains some things which I'd like to show by this portfolio besides my bio:\r - SCSS (mixins, variables),\r - Responsiveness,\r - Responsive menu (\"Burger\"),\r - Neumorphism,\r - Converting JS code to be compatibile with all browsers.",
+  "main": "index.js",
+  "scripts": {
+    "babel": "node_modules/.bin/babel src/app.js -w -o dist/scripts/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iga-g/portfolio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iga-g/portfolio/issues"
+  },
+  "homepage": "https://github.com/iga-g/portfolio#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0"
+  }
+}
