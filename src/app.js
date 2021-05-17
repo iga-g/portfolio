@@ -50,15 +50,40 @@ window.onresize = () => {
 };
 
 
+const popup = document.querySelector('.popup-wrapper');
+const popupClose = document.querySelector('.popup-close');
+
+function closePopup() {
+  popup.style.display = "none";
+}
+
+function clearErrors() {
+  document.querySelectorAll(".err-msg").forEach(elem => {
+    elem.innerText = "";
+  })
+};
+
 function mailprompt(form, event) {
   event.preventDefault();
 
-  fetch("https://b2b.candilla.eu/igg/api/mail", {
+  clearErrors();
+
+  if (form.name.value.length == 0) {
+    document.getElementById("name-validation-msg").innerText = `Fill the name field! I would like to know who contacts me :)`;
+  } else if (form.email.value.length == 0) {
+    document.getElementById("email-validation-msg").innerText = `I need your e-mail to answer!`;
+  } else if (form.msg.value.length == 0) {
+    document.getElementById("textarea-validation-msg").innerText = `Type your message!`;
+  } else {
+    fetch("https://b2b.candilla.eu/igg/api/mail", {
       body: new FormData(form),
       method: "post"
-  }).then(r => {
-      console.log(r)
-  }).catch(r => {
+    }).then(function subAnswer() {
+      popup.style.display = "flex";
+      popupClose.addEventListener('click', closePopup);
+      form.reset();
+    }).catch(r => {
       console.log("err", r);
-  })
+    });
+  }
 }

@@ -5,7 +5,7 @@ var header = document.querySelector('header');
 window.onscroll = function () {
   if (window.scrollY > 100) {
     header.classList.add('sticky-header');
-  } else if (window.scrollY <= 50 ) {
+  } else if (window.scrollY <= 50) {
     header.classList.remove('sticky-header');
   }
 };
@@ -48,14 +48,41 @@ window.onresize = function () {
   }
 };
 
+var popup = document.querySelector('.popup-wrapper');
+var popupClose = document.querySelector('.popup-close');
+
+function closePopup() {
+  popup.style.display = "none";
+}
+
+function clearErrors() {
+  document.querySelectorAll(".err-msg").forEach(function (elem) {
+    elem.innerText = "";
+  });
+}
+
+;
+
 function mailprompt(form, event) {
   event.preventDefault();
-  fetch("https://b2b.candilla.eu/igg/api/mail", {
-    body: new FormData(form),
-    method: "post"
-  }).then(function (r) {
-    console.log(r);
-  })["catch"](function (r) {
-    console.log("err", r);
-  });
+  clearErrors();
+
+  if (form.name.value.length == 0) {
+    document.getElementById("name-validation-msg").innerText = "Fill the name field! I would like to know who contacts me :)";
+  } else if (form.email.value.length == 0) {
+    document.getElementById("email-validation-msg").innerText = "I need your e-mail to answer!";
+  } else if (form.msg.value.length == 0) {
+    document.getElementById("textarea-validation-msg").innerText = "Type your message!";
+  } else {
+    fetch("https://b2b.candilla.eu/igg/api/mail", {
+      body: new FormData(form),
+      method: "post"
+    }).then(function subAnswer() {
+      popup.style.display = "flex";
+      popupClose.addEventListener('click', closePopup);
+      form.reset();
+    })["catch"](function (r) {
+      console.log("err", r);
+    });
+  }
 }
